@@ -110,6 +110,12 @@ class Rectangle:
 
     @staticmethod
     def bigger_or_equal(rect_1, rect_2):
+        """ method that determines which rectangle is bigger between rect_1
+        and rect_2 depending on area
+        Returns:
+            the bigger rectangle between rect_1 and rect_2 or
+            rect_1 if they are equal
+        """
         if not isinstance(rect_1, Rectangle):
             print("rect_1 must be an instance of Rectangle")
         if not isinstance(rect_2, Rectangle):
