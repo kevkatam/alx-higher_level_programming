@@ -41,7 +41,7 @@ def Queen(mqueen, nqueen):
         mqueen: array containing yhe position of the queen
         nqueen: queen number
     """
-    if nqueen is len(mqueen):
+    if nqueen == len(mqueen):
         printresult(mqueen, nqueen)
         return
     mqueen[nqueen] = -1
@@ -49,7 +49,7 @@ def Queen(mqueen, nqueen):
     while ((mqueen[nqueen] < len(mqueen) - 1)):
         mqueen[nqueen] += 1
         if is_secure(mqueen, nqueen) is True:
-            if nqueen is not len(mqueen):
+            if nqueen != len(mqueen):
                 Queen(mqueen, nqueen + 1)
 
 
@@ -61,6 +61,7 @@ def resolveNqueen(size):
     mqueen = [-1 for i in range(size)]
     Queen(mqueen, 0)
 
+
 if __name__ == '__main_':
     import sys
 
@@ -71,6 +72,7 @@ if __name__ == '__main_':
         size = int(sys.argv[1])
     except ValueError:
         print("N must be a number")
+        sys.exit(1)
     if size < 4:
         print("N must be at least 4")
         sys.exit(1)
