@@ -10,5 +10,5 @@ class LockedClass:
     __slots__ = ['first_name']
 
     def __int__(self):
-        """ init method """
+        """ Init method """
         pass
