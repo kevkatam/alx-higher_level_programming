@@ -61,17 +61,17 @@ def resolveNqueen(size):
     mqueen = [-1 for i in range(size)]
     Queen(mqueen, 0)
 
-    if __name__ == '__main__':
-        import sys
+if __name__ == '__main_':
+    import sys
 
-        if len(sys.argv) == 1 or len(sys.argv) > 2:
-            print("Usage: nqueens N")
-            sys.exit(1)
-        try:
-            size = int(sys.argv[1])
-        except ValueError:
-            print("N must be a number")
-        if size < 4:
-            print("N must be at least 4")
-            sys.exit(1)
-        resolveNqueen(size)
+    if len(sys.argv) == 1 or len(sys.argv) > 2:
+        print("Usage: nqueens N")
+        sys.exit(1)
+    try:
+        size = int(sys.argv[1])
+    except ValueError:
+        print("N must be a number")
+    if size < 4:
+        print("N must be at least 4")
+        sys.exit(1)
+    resolveNqueen(size)
