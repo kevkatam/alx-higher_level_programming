@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""""
+"""
 A module containging a class that prevents the user from dynamically creating
 new instance attributes, except if the new instance attkribute is
 called first_name.
