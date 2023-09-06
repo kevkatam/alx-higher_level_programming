@@ -44,7 +44,7 @@ def Queen(mqueen, nqueen):
     if nqueen is len(mqueen):
         printresult(mqueen, nqueen)
         return
-    mqueen[nqueen] = - 1
+    mqueen[nqueen] = -1
 
     while ((mqueen[nqueen] < len(mqueen) - 1)):
         mqueen[nqueen] += 1
