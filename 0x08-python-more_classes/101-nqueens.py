@@ -41,7 +41,7 @@ def Queen(mqueen, nqueen):
         mqueen: array containing yhe position of the queen
         nqueen: queen number
     """
-    if nqueen == len(mqueen):
+    if nqueen is len(mqueen):
         printresult(mqueen, nqueen)
         return
     mqueen[nqueen] = -1
@@ -49,7 +49,7 @@ def Queen(mqueen, nqueen):
     while ((mqueen[nqueen] < len(mqueen) - 1)):
         mqueen[nqueen] += 1
         if is_secure(mqueen, nqueen) is True:
-            if nqueen != len(mqueen):
+            if nqueen is not len(mqueen):
                 Queen(mqueen, nqueen + 1)
 
 
