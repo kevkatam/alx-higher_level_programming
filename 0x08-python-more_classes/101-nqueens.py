@@ -35,7 +35,7 @@ def printresult(mqueen, nqueen):
     print(result)
 
 
-def queen(mqueen, nqueen):
+def Queen(mqueen, nqueen):
     """ recursive function that performs the backtracking algorithm
     Args:
         mqueen: array containing yhe position of the queen
@@ -50,7 +50,7 @@ def queen(mqueen, nqueen):
         mqueen[nqueen] += 1
         if is_secure(mqueen, nqueen) is True:
             if nqueen is not len(mqueen):
-                queen(mqueen, nqueen + 1)
+                Queen(mqueen, nqueen + 1)
 
 
 def resolveNqueen(size):
@@ -59,7 +59,7 @@ def resolveNqueen(size):
         size: size of the chessboard
     """
     mqueen = [-1 for i in range(size)]
-    queen(mqueen, 0)
+    Queen(mqueen, 0)
 
     if __name__ == '__main__':
         import sys
