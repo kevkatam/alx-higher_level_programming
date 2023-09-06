@@ -62,7 +62,7 @@ def resolveNqueen(size):
     Queen(mqueen, 0)
 
 
-if __name__ == '__main_':
+if __name__ == '__main__':
     import sys
 
     if len(sys.argv) == 1 or len(sys.argv) > 2:
