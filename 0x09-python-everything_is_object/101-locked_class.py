@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-A module containging a class that prevents the user from dynamically creating attributes
+A module containing a class that prevents the user from dynamically creating attributes
 """
 
 
