@@ -44,3 +44,15 @@ TypeError: a must be an integer
 6
 >>> add_integer(-1)
 97
+>>> add_integer(float('inf'), 0)
+Traceback (most recent call last):
+    a = int(a)
+OverflowError: cannot convert float infinity to integer
+>>> add_integer(float('inf'), float('-inf'))
+Traceback (most recent call last):
+    a = int(a)
+OverflowError: cannot convert float infinity to integer
+>>> add_integer(0, float('nan'))
+Traceback (most recent call last):
+    b = int(b)
+ValueError: cannot convert float NaN to integer
