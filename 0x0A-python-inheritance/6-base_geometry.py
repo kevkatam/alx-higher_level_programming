@@ -5,6 +5,7 @@ module that raises an exception
 
 
 class BaseGeometry:
+    """ empty class """
     def area(self):
         """ method that raises an exception
         """
