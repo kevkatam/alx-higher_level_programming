@@ -1,4 +1,8 @@
 #!/usr/bin/python3
+""" module containing class that inherits from the class list
+"""
+
+
 class MyList(list):
     """ class that inherits list class
     Args:
