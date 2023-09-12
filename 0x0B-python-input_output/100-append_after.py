@@ -20,5 +20,5 @@ def append_after(filename="", search_string="", new_string=""):
             if line.find(search_string) != -1:
                 result += [new_string]
 
-    with open(filename, mode="r", encoding="UTF-8") as my_file:
+    with open(filename, mode="w", encoding="UTF-8") as my_file:
         my_file.write("".join(result))
