@@ -3,6 +3,8 @@
 a module base that is base of all the other clases, goal of it
 is to manage id attribute in all  and to avoid duplicating the same code
 """
+import json
+import os.path
 
 
 class Base:
