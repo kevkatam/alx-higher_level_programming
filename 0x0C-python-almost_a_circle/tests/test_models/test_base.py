@@ -51,11 +51,43 @@ class TestBaseMethods(unittest.TestCase):
 
     def test_id_more_args(self):
         """ test passing more args to base """
-        with self.assertRaise(TypeError):
+        with self.assertRaises(TypeError):
             new_ins = Base(2, 2)
 
     def test_private_atrs(self):
         """ tests private attributes """
         new_ins = Base()
-        with self.assertRaise(AttributeError):
+        with self.assertRaises(AttributeError):
             new_ins.__nb_objects
+
+    def test_save_to_file(self):
+        """ tests JSON file """
+        Rectangle.save_to_file(None)
+        result = "[]\n"
+        with open("Rectangle.json", mode="r") as my_file:
+            with patch("sys.stdout", new_ins=StringIO()) as strout:
+                print(my_file.read())
+                self.assertEqual(strout.getvalue(), result)
+        try:
+            os.remove("Rectangle.json")
+        except:
+            pass
+        Rectangle.save_to_file([])
+        with open("Rectangle.json", mode="r") as my_file:
+            self.assertEqual(my_file.read(), "[]")
+
+    def test_save_to_file(self):
+        """ tests JSON file """
+        Square.save_to_file(None)
+        result = "[]\n"
+        with open("Square.json", mode="r") as my_file:
+            with patch("sys.stdout", new_ins=StringIO()) as strout:
+                print(my_file.read())
+                self.assertEqual(strout.getvalue(), result)
+        try:
+            os.remove("Square.json")
+        except:
+            pass
+        Square.save_to_file([])
+        with open("Square.json", mode="r") as my_file:
+            self.assertEqual(my_file.read(), "[]")
