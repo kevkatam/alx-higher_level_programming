@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/python3
 """ modelue for test of class Base """
 import unittest
 from models.base import Base
@@ -51,5 +51,11 @@ class TestBaseMethods(unittest.TestCase):
 
     def test_id_more_args(self):
         """ test passing more args to base """
-        new_ins = Base(2, 2)
-        with self.assertRaised
+        with self.assertRaise(TypeError):
+            new_ins = Base(2, 2)
+
+    def test_private_atrs(self):
+        """ tests private attributes """
+        new_ins = Base()
+        with self.assertRaise(AttributeError):
+            new_ins.__nb_objects
