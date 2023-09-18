@@ -79,7 +79,7 @@ class Base:
         return instance_list
 
     @classmethod
-    def load_from_file_csv(cls, list_objs):
+    def load_from_file_csv(cls):
         """ serializes and deserializes in CSV """
         filename = "{}.csv".format(cls.__name__)
 
@@ -97,7 +97,7 @@ class Base:
         for csvelem in csvlist:
             dictcsv = {}
             for i in enumerate(csvelem):
-                dictcsv[listkeys[i]] = int([i])
+                dictcsv[listkeys[0]] = int(i[1])
             matrix.append(dictcsv)
 
         listins = []
