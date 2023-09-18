@@ -97,7 +97,7 @@ class Base:
         for csvelem in csvlist:
             dictcsv = {}
             for i in enumerate(csvelem):
-                dictcsv[listkeys[0]] = int(i[1])
+                dictcsv[listkeys[i[0]]] = int(i[1])
             matrix.append(dictcsv)
 
         listins = []
