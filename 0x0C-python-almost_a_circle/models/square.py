@@ -63,7 +63,7 @@ class Square(Rectangle):
         atr_list = ["id", "size", "x", "y"]
         result_dic = {}
         for key in atr_list:
-            if key == size:
+            if key == "size":
                 result_dic[key] = getattr(self, "height")
             else:
                 result_dic[key] = getattr(self, key)
