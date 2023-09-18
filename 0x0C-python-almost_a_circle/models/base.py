@@ -4,6 +4,7 @@ a module base that is base of all the other clases, goal of it
 is to manage id attribute in all  and to avoid duplicating the same code
 """
 import json
+import csv
 import os.path
 
 
@@ -52,7 +53,7 @@ class Base:
             return []
         else:
             json.loads(json_string)
-    
+
     @classmethod
     def create(cls, **dictionary):
         """ method that returns an instance with all attributes already set
@@ -69,7 +70,7 @@ class Base:
         """ method that returns a list of instances """
         filename = "{}.json".format(cls.__name__)
         instance_list = []
-        if  os.path.exists(filename) is False:
+        if os.path.exists(filename) is False:
             return []
         with open(filename, mode="r") as my_file:
             str_list = myfile.read()
@@ -77,3 +78,31 @@ class Base:
         for i in range(len(list_class)):
             instance_list.apppend(create(**list_class[i]))
         return instance_list
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """ serializes and deserializes in CSV """
+        filename = "{}.csv".format(cls.__name__)
+
+        if os.path.exists(filename) is False:
+            return []
+        with open(filename, mode='r') as my_file:
+            reader = csv.reader(my_file)
+            csvlist = list(reader)
+
+        if cls.__name__ == "Rectangle":
+            listkeys = ['id', 'width', 'height', 'x', 'y']
+        else:
+            listkeys = ['id', 'size', 'x', 'y']
+        matrix = []
+        for csvelem in csvlist:
+            dictcsv = {}
+            for i in enumerate(csvelem):
+                dictcsv[listkeys[i]] = int([i])
+            matrix.append(dictcsv)
+
+        listins = []
+        for indx in range(len(matrix)):
+            listins.append(cls.create(**matrix[indx]))
+
+        return (listins)
