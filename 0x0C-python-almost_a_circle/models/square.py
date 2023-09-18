@@ -16,6 +16,15 @@ class Square(Rectangle):
         str_s = "[Square] "
         str_id = "({}) ".format(self.id)
         str_xy = "{}/{} - ".format(self.x, self.y)
+        str_wh = "{}/{}".format(self.width, self, height)
+
+        return str_s + str_id + str_xy + str_wh
+
+    def __str__(self):
+        """ method that overides the str method to print a formated string """
+        str_s = "[Square] "
+        str_id = "({}) ".format(self.id)
+        str_xy = "{}/{} - ".format(self.x, self.y)
         str_size = "{}".format(self.size)
 
         return str_s + str_id + str_xy + str_size
@@ -23,19 +32,19 @@ class Square(Rectangle):
     @property
     def size(self):
         """ size getter """
-        return self.__size
+        return self.width
 
     @size.setter
     def size(self, value):
         """ size setter """
-        self.__width = value
-        self.__height = value
+        self.width = value
+        self.height = value
 
     def update(self, *args, **kwargs):
         """ updated method that assigns attributes """
         if args is not None and len(args) is not 0:
             atr_list = ["id", "size", "x", "y"]
-            for i in atr_list:
+            for i in range(len(args)):
                 if atr_list[i] == "size":
                     setattr(self, "width", args[i])
                     setattr(self, "height", args[i])
@@ -48,7 +57,7 @@ class Square(Rectangle):
                     setattr(self, "height", value)
                 else:
                     setattr(self, key, value)
-    
+
     def to_dictionary(self):
         """ method  that returns the dictionary representation of a Square """
         atr_list = ["id", "size", "x", "y"]
