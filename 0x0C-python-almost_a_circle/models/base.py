@@ -72,10 +72,10 @@ class Base:
         if os.path.exists(filename) is False:
             return []
         with open(filename, mode="r") as my_file:
-            str_list = myfile.read()
+            str_list = my_file.read()
             list_class = cls.from_json_string(str_list)
         for i in range(len(list_class)):
-            instance_list.apppend(cls.create(**list_class[i]))
+            instance_list.append(cls.create(**list_class[i]))
         return instance_list
 
     @classmethod
