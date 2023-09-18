@@ -105,6 +105,7 @@ class Base:
             listins.append(cls.create(**matrix[indx]))
 
         return (listins)
+
     @classmethod
     def save_to_file_csv(cls, list_objs):
         """ Method that saves a CSV file """
