@@ -25,7 +25,7 @@ class Base:
     def to_json_string(list_dictionaries):
         """ method that returns the JSON string representation of
         list_dictionaries """
-        if list_dictionaries is None or len(list_dictionaries) is 0:
+        if list_dictionaries is None or ist_dictionaries == "[]":
             return "[]"
         else:
             json.dumps(list_dictionaries)
@@ -49,10 +49,9 @@ class Base:
     def from_json_string(json_string):
         """ method that returns the list of the JSON string representation
         json_string """
-        if json_string is None or len(json_string) is 0:
+        if not json_string:
             return []
-        else:
-            json.loads(json_string)
+        return json.loads(json_string)
 
     @classmethod
     def create(cls, **dictionary):
@@ -76,11 +75,11 @@ class Base:
             str_list = myfile.read()
             list_class = cls.from_json_string(str_list)
         for i in range(len(list_class)):
-            instance_list.apppend(create(**list_class[i]))
+            instance_list.apppend(cls.create(**list_class[i]))
         return instance_list
 
     @classmethod
-    def save_to_file_csv(cls, list_objs):
+    def load_from_file_csv(cls, list_objs):
         """ serializes and deserializes in CSV """
         filename = "{}.csv".format(cls.__name__)
 
@@ -106,3 +105,28 @@ class Base:
             listins.append(cls.create(**matrix[indx]))
 
         return (listins)
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """ Method that saves a CSV file """
+        filename = "{}.csv".format(cls.__name__)
+
+        if cls.__name__ == "Rectangle":
+            list_dic = [0, 0, 0, 0, 0]
+            list_keys = ['id', 'width', 'height', 'x', 'y']
+        else:
+            list_dic = ['0', '0', '0', '0']
+            list_keys = ['id', 'size', 'x', 'y']
+
+        matrix = []
+
+        if not list_objs:
+            pass
+        else:
+            for obj in list_objs:
+                for kv in range(len(list_keys)):
+                    list_dic[kv] = obj.to_dictionary()[list_keys[kv]]
+                matrix.append(list_dic[:])
+
+        with open(filename, 'w') as writeFile:
+            writer = csv.writer(writeFile)
+            writer.writerows(matrix)
