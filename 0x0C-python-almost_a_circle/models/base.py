@@ -144,7 +144,7 @@ class Base:
             t.penup()
             t.goto(r.x, r.y)
             t.pendown()
-            for i in range(2):
+            for _ in range(2):
                 t.fd(r.width)
                 t.left(90)
                 t.fd(r.height)
@@ -152,7 +152,7 @@ class Base:
             t.penup()
             t.hideturtle()
 
-        for s in list_squares:
+        for _ in list_squares:
             t.penup()
             t.goto(s.x, s.y)
             t.pendown()
