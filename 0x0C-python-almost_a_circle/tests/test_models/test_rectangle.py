@@ -36,7 +36,7 @@ class TestRectangle(unittest.TestCase):
         """ tests new rectangles """
         new_ins = Rectangle(2, 2)
         new_ins1 = Rectangle(2, 2)
-        self.assertEqual(False, new_ins is new_ins2)
+        self.assertEqual(False, new_ins is new_ins1)
         self.assertEqual(False, new_ins.id == new_ins1.id)
 
     def test_is_base_instance(self):
@@ -57,45 +57,45 @@ class TestRectangle(unittest.TestCase):
     def test_access_private_attr(self):
         """ test access to private attribute """
         new_ins = Rectangle(2, 2)
-        with self.asserRaises(AttributeError):
+        with self.assertRaises(AttributeError):
             new_ins.__width
 
     def test_access_private_attr1(self):
         """ test access to private attribute """
         new_ins = Rectangle(2, 2)
-        with self.asserRaises(AttributeError):
+        with self.assertRaises(AttributeError):
             new_ins.__height
 
     def test_access_private_attr2(self):
         """ test access to private attribute """
         new_ins = Rectangle(2, 2)
-        with self.asserRaises(AttributeError):
+        with self.assertRaises(AttributeError):
             new_ins.__x
 
     def test_access_private_attr3(self):
         """ test access to private attribute """
         new_ins = Rectangle(2, 2)
-        with self.asserRaises(AttributeError):
+        with self.assertRaises(AttributeError):
             new_ins.__y
 
     def test_valid_attrs(self):
         """ test passing a string """
-        with self.asserRaises(TypeError):
+        with self.assertRaises(TypeError):
             new_ins = Rectangle("2", 2, 2, 2, 2)
 
     def test_valid_attrs1(self):
         """ test passing a string """
-        with self.asserRaises(TypeError):
+        with self.assertRaises(TypeError):
             new_ins = Rectangle(2, "2", 2, 2, 2)
 
     def test_valid_attrs2(self):
         """ test passing a string """
-        with self.asserRaises(TypeError):
+        with self.assertRaises(TypeError):
             new_ins = Rectangle(2, 2, "2", 2, 2)
 
     def test_valid_attrs3(self):
         """ test passing a string """
-        with self.asserRaises(TypeError):
+        with self.assertRaises(TypeError):
             new_ins = Rectangle(2, 2, 2, "2", 2)
 
     def test_value_attrs(self):
@@ -205,7 +205,7 @@ class TestRectangle(unittest.TestCase):
     def test_str3(self):
         """ tests __str__ return value """
         rect1 = Rectangle(2, 3)
-        result = "[Rectangle] (1) 0/0 - 2/3\n"
+        result = "[Rectangle] (1) 0/0 - 2/3"
         self.assertEqual(rect1.__str__(), result)
 
     def test_display2(self):
@@ -282,7 +282,7 @@ class TestRectangle(unittest.TestCase):
         rect1 = Rectangle(1, 1)
         dictionary = rect1.to_dictionary()
         jsondictionary = Base.to_json_string([dictionary])
-        result = "[{}]\n".format(dictionary.__str__)
+        result = "[{}]\n".format(dictionary.__str__())
         with patch('sys.stdout', new=StringIO()) as strout:
             print(jsondictionary)
             self.assertEqual(strout.getvalue(), result.replace("'", "\""))
@@ -344,11 +344,10 @@ class TestRectangle(unittest.TestCase):
 
     def test_load_fromfile2(self):
         """ tests load json file """
-    rect1 = Rectangle(2, 2)
-    rect2 = Rectangle(5, 6, 2, 2)
-    linput = [rect1, rect2]
-    Rectangle.save_to_file(linput)
-    loutput = Rectangle.load_from_file()
-
-    for i in range(len(linput)):
-        self.assertEqual(linput[i].__str__(), loutput[i].__str__())
+        rect1 = Rectangle(2, 2)
+        rect2 = Rectangle(5, 6, 2, 2)
+        linput = [rect1, rect2]
+        Rectangle.save_to_file(linput)
+        loutput = Rectangle.load_from_file()
+        for i in range(len(linput)):
+            self.assertEqual(linput[i].__str__(), loutput[i].__str__())
