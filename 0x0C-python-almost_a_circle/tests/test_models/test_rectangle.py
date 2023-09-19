@@ -5,14 +5,14 @@ from unittest import TestCase
 from io import StringIO
 from unittest.mock import patch
 from models.rectangle import Rectangle
-from models.Base import Base
+from models.base import Base
 
 
 class TestRectangle(unittest.TestCase):
     """ suite that tests rectangle class """
     def setUp(self):
         """ method invoked for each test """
-        Base.__nb_objects = 0
+        Base._Base__nb_objects = 0
 
     def test_new_rectangle(self):
         """ tests new rectangle """
@@ -342,7 +342,7 @@ class TestRectangle(unittest.TestCase):
         loadfile = Rectangle.load_from_file()
         self.assertEqual(loadfile, [])
 
-    def test_load_fromfile(self):
+    def test_load_fromfile2(self):
         """ tests load json file """
     rect1 = Rectangle(2, 2)
     rect2 = Rectangle(5, 6, 2, 2)

@@ -32,8 +32,8 @@ class TestBaseMethods(unittest.TestCase):
         new_ins1 = Base()
         new_ins2 = Base()
         self.assertEqual(new_ins.id, 1)
-        self.assertEqual(new_ins.id, 2)
-        self.assertEqual(new_ins.id, 3)
+        self.assertEqual(new_ins1.id, 2)
+        self.assertEqual(new_ins2.id, 3)
 
     def test_id_dif(self):
         """ tests the __nb_objects attribute and id """
@@ -41,8 +41,8 @@ class TestBaseMethods(unittest.TestCase):
         new_ins1 = Base(250)
         new_ins2 = Base()
         self.assertEqual(new_ins.id, 1)
-        self.assertEqual(new_ins.id, 250)
-        self.assertEqual(new_ins.id, 3)
+        self.assertEqual(new_ins1.id, 250)
+        self.assertEqual(new_ins2.id, 2)
 
     def test_id_string(self):
         """ tests string id """
@@ -76,7 +76,7 @@ class TestBaseMethods(unittest.TestCase):
         with open("Rectangle.json", mode="r") as my_file:
             self.assertEqual(my_file.read(), "[]")
 
-    def test_save_to_file(self):
+    def test_save_to_file1(self):
         """ tests JSON file """
         Square.save_to_file(None)
         result = "[]\n"
