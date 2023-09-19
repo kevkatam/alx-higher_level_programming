@@ -6,6 +6,7 @@ is to manage id attribute in all  and to avoid duplicating the same code
 import json
 import csv
 import os.path
+import turtle
 
 
 class Base:
@@ -131,3 +132,33 @@ class Base:
         with open(filename, 'w') as writeFile:
             writer = csv.writer(writeFile)
             writer.writerows(matrix)
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """ opens a window and draws all the Rectangles and Squares """
+        t = turtle.Turtle()
+        window = turtle.Screen()
+        window.bgcolor("white")
+
+        for r in list_rectangles:
+            t.penup()
+            t.goto(r.x, r.y)
+            t.pendown()
+            for i in range(2):
+                t.fd(r.width)
+                t.left(90)
+                t.fd(r.height)
+                t.left(90)
+            t.penup()
+            t.hideturtle()
+
+        for s in list_squares:
+            t.penup()
+            t.goto(s.x, s.y)
+            t.pendown()
+            for i in range(4):
+                t.fd(s.width)
+                t.left(90)
+            t.penup()
+            t.hideturtle
+        window.exitonclick()
