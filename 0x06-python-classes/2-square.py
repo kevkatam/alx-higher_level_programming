@@ -7,7 +7,7 @@ module square that defines a square
 class Square:
     """ class square that defines a square """
 
-    def __init__(self, size):
+    def __init__(self, size=0):
         """ method that initializes th attribute size of the square
 
         Args:
