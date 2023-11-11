@@ -76,16 +76,15 @@ class Square:
     def __str__(self):
         """ method that prints a human readable outuput to the stdout"""
         p = ""
-        if sel.size == 0:
+        if self.size == 0:
             return p
-        else:
-            for i in range(self.position[1]):
-                p += "/n"
-            for i in range(self.size):
-                for j in range(self.position[0]):
-                    p += " "
-                for k in range(self.size):
-                    p += "#"
-                if i is not (self.size - 1:
-                    p += "/n"
-            return p
+        for i in range(self.position[1]):
+            p += "\n"
+        for i in range(self.size):
+            for j in range(self.position[0]):
+                p += " "
+            for k in range(self.size):
+                p += "#"
+            if i is not (self.size - 1):
+                p += "\n"
+        return p
