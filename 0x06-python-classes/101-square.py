@@ -86,6 +86,6 @@ class Square:
                     p += " "
                 for k in range(self.size):
                     p += "#"
-                if i < self_size:
+                if i is not (self.size - 1:
                     p += "/n"
         return p
