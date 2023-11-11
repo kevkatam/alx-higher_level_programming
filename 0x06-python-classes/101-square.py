@@ -80,12 +80,12 @@ class Square:
             return p
         else:
             for i in range(self.position[1]):
-                p.append("/n")
+                p += "/n"
             for i in range(self.size):
                 for j in range(self.position[0]):
-                    p.append(" ")
+                    p += " "
                 for k in range(self.size):
-                    p.append("#")
+                    p += "#"
                 if i < self_size:
-                    p.append("/n")
+                    p += "/n"
         return p
