@@ -88,4 +88,4 @@ class Square:
                     p += "#"
                 if i is not (self.size - 1:
                     p += "/n"
-        return p
+            return p
