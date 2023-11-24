@@ -2,7 +2,7 @@
 """
 module containing a class definition of City and that inherits from base
 """
-from model_state import Base
+from relationship_state import Base
 from sqlalchemy import ForeignKey, Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
 
