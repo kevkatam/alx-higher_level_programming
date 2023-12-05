@@ -5,6 +5,7 @@ function that finds a peak in a list of unsorted integers.
 
 
 def find_peak(list_of_integers):
+    """ function that finds peak in a list """
     length = len(list_of_integers)
     mylist = list_of_integers
     x = int(length / 2)
